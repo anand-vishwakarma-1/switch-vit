@@ -541,10 +541,10 @@ if __name__ == "__main__":
     parser.add_argument('--epochs', default=32, type=int, help='no. of epochs')
     parser.add_argument('--experts', default=32, type=int, help='no. of experts')
     parser.add_argument('--batch', default=32, type=int, help='batch size')
-    parser.add_argument('--noswitch', action="store_true", help='plain vit')
-    parser.add_argument('--cifar100', action="store_true", help='cifar 100')
+    parser.add_argument('--noswitch', action="store_true", help='use original vit')
+    parser.add_argument('--cifar100', action="store_true", help='use cifar 100 dataset')
     parser.add_argument('--out', default='/scratch/asv8775/hpml/project/models/new', type=str, help='model output path')
-    parser.add_argument('--dmodel', default=300, type=int, help='d_model')
+    parser.add_argument('--dmodel', default=300, type=int, help='d_model embedding size')
     args = parser.parse_args()
     gpu_count = args.gpu
 
