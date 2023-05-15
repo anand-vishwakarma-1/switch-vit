@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar100_cosine
+#SBATCH --job-name=vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar10_cosine
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=256GB
 #SBATCH --gres=gpu:rtx8000:4
 #SBATCH --time=15:00:00
-#SBATCH --output="vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar100_cosine.txt"
+#SBATCH --output="vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar10_cosine.txt"
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
 #SBATCH --mail-user=asv8775@nyu.edu
@@ -27,7 +27,7 @@ singularity \
   /scratch/work/public/singularity/cuda11.8.86-cudnn8.7-devel-ubuntu22.04.2.sif \
   /bin/bash -c "
  source /ext3/env.sh
- mkdir /scratch/asv8775/hpml/project/models/vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar100_cosine
+ mkdir /scratch/asv8775/hpml/project/models/vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar10_cosine
  export PYTHONUNBUFFERED=TRUE
- python vit.py --batch 256 --experts 32 --epochs 500 --gpu 4 --dmodel 300 --cifar100 --out vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar100_cosine
+ python vit.py --batch 256 --experts 32 --epochs 350 --gpu 4 --dmodel 300 --out vit_model_rtx_4_dmodel_300_experts_32_batch_256_cifar10_cosine
 "
